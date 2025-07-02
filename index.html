@@ -1,182 +1,150 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Billy!</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ===  COLOR PALETTE  === */
-    :root {
-      --primary: #00c9ff;
-      --accent: #92fe9d;
-      --dark: #0d1b2a;
-      --glass: rgba(255, 255, 255, 0.1);
-      --blur: 30px;
-      --shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, #2e0249, #570a57, #a91079, #f806cc);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: white;
+    }
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, var(--dark), #162d46 50%, #1e3c63 100%);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
-/* =====  Central Card  ===== */
-.card {
-  background: var(--glass);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 3rem 4rem;
-  text-align: center;
-  color: #fff;
-  box-shadow: var(--shadow);
-  animation: popIn 1s ease-out forwards;
-  transform: scale(0.7);
-}
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      margin-top: 60px;
+      animation: popIn 1s ease-out forwards;
+    }
 
-.card h1 {
-  font-size: 2.8rem;
-  line-height: 1.2;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-bottom: 1rem;
-}
+    p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
 
-.card p {
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-}
+    .btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #fff;
+      color: #a91079;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
 
-.btn {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--dark);
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
+    .btn:hover {
+      background: #fdddf5;
+    }
 
-.btn:hover {
-  transform: translateY(-2px);
-}
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
 
-@keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  80% {
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      background-color: red;
+      border-radius: 60% 60% 60% 60%;
+      animation: floatUp 10s infinite;
+      z-index: 0;
+    }
 
-/* =====  Balloons  ===== */
-.balloon {
-  position: absolute;
-  bottom: -150px;
-  width: 80px;
-  height: 110px;
-  background: var(--primary);
-  border-radius: 45% 45% 40% 40%;
-  opacity: 0.9;
-  box-shadow: inset -5px -10px 15px rgba(0,0,0,0.15);
-  animation: rise 10s infinite ease-in;
-}
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: white;
+    }
 
-.balloon::after {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  width: 2px;
-  height: 60px;
-  background: #fff;
-}
-
-@keyframes rise {
-  0% {
-    transform: translateX(0) translateY(0) rotateZ(0deg);
-  }
-  100% {
-    transform: translateX(var(--side-move)) translateY(-120vh) rotateZ(360deg);
-  }
-}
-
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
 <body>
-  <!-- Confetti Canvas will be injected by library -->  <div class="card">
-    <h1>Happy Birthday <span id="name">Billy!</span></h1>
-    <p>Wishing you a day filled with laughter, joy, and unforgettable moments. May all your dreams come true!</p>
-    <button class="btn" id="replay">🎉 Replay Celebration</button>
-  </div>  <!-- CDN for Canvas Confetti (small footprint) -->  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>  <script>
-    /* =====  CONFETTI BURST FUNCTION  ===== */
+
+  <h1>🎉 Happy Birthday Billy! 🎉</h1>
+  <p>Wishing you a day filled with laughter, joy, and unforgettable moments. May all your dreams come true!</p>
+  <button class="btn" onclick="startCelebration()">Replay Celebration 🎊</button>
+
+  <!-- Music Autoplay -->
+  <audio id="birthdayMusic" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_31686b9f60.mp3?filename=happy-birthday-109709.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Confetti JS -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
     function shootConfetti() {
-      const duration = 3 * 1000;
-      const animationEnd = Date.now() + duration;
-      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+      var end = Date.now() + 2 * 1000;
+      var colors = ['#bb0000', '#ffffff', '#00ff99', '#ffcc00'];
 
-      function randomInRange(min, max) {
-        return Math.random() * (max - min) + min;
-      }
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: colors
+        });
 
-      const interval = setInterval(function() {
-        const timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-          return clearInterval(interval);
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
         }
+      }());
+    }
 
-        const particleCount = 50 * (timeLeft / duration);
-        // since particles fall down, start a bit higher than random
-        confetti(Object.assign({}, defaults, {
-          particleCount,
-          origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 }
-        }));
-      }, 250);
-    }/* =====  BALLOON GENERATOR  ===== */
-    function createBalloons(num = 12) {
-      const colors = ["#f94144", "#f3722c", "#f9c74f", "#90be6d", "#00c9ff", "#92fe9d", "#ff6b6b"];
-      for (let i = 0; i < num; i++) {
+    function createBalloons(count = 15) {
+      const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#5f27cd'];
+      for (let i = 0; i < count; i++) {
         const balloon = document.createElement('div');
         balloon.classList.add('balloon');
         balloon.style.left = Math.random() * 100 + 'vw';
-        const scale = Math.random() * 0.4 + 0.8;
-        balloon.style.transform = scale(${scale});
-        balloon.style.background = colors[Math.floor(Math.random()*colors.length)];
-        balloon.style.setProperty('--side-move', ${Math.random() * 200 - 100}px);
-        balloon.style.animationDuration = 8 + Math.random() * 6 + 's';
+        balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.animationDuration = (10 + Math.random() * 5) + 's';
         document.body.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 12000);
       }
     }
 
-    // Initial Celebrate
-    createBalloons();
-    shootConfetti();
-
-    // Replay Handler
-    document.getElementById('replay').addEventListener('click', () => {
+    function startCelebration() {
       shootConfetti();
-    });
-  </script></body>
+      createBalloons();
+      document.getElementById('birthdayMusic').play();
+    }
+
+    window.onload = startCelebration;
+  </script>
+</body>
 </html>
