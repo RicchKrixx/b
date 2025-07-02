@@ -6,15 +6,22 @@
   <title>Happy Birthday Billy!</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      overflow: hidden;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       background: linear-gradient(135deg, #2e0249, #570a57, #a91079, #f806cc);
       background-size: 400% 400%;
       animation: gradientMove 15s ease infinite;
       font-family: 'Poppins', sans-serif;
-      text-align: center;
-      color: white;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     @keyframes gradientMove {
@@ -23,40 +30,55 @@
       100% {background-position: 0% 50%;}
     }
 
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 3rem;
-      margin-top: 60px;
-      animation: popIn 1s ease-out forwards;
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 40px 30px;
+      text-align: center;
+      color: white;
+      max-width: 90%;
+      width: 400px;
+      z-index: 10;
+      animation: fadeIn 1s ease-out;
     }
 
-    p {
-      font-size: 1.2rem;
-      margin-top: 10px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .container h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .container p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
     }
 
     .btn {
-      margin-top: 20px;
-      padding: 12px 24px;
+      padding: 10px 22px;
       font-size: 1rem;
-      background: #fff;
+      font-weight: bold;
       color: #a91079;
+      background: #fff;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      font-weight: bold;
       transition: background 0.3s ease;
     }
 
     .btn:hover {
-      background: #fdddf5;
+      background: #fce4f3;
     }
 
-    @keyframes popIn {
-      from { transform: scale(0); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
+    /* Balloons */
     .balloon {
       position: absolute;
       bottom: -150px;
@@ -82,13 +104,25 @@
       0% { transform: translateY(0) rotate(0deg); opacity: 1; }
       100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
+
+    /* Confetti fix */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
 
-  <h1>🎉 Happy Birthday Billy! 🎉</h1>
-  <p>Wishing you a day filled with laughter, joy, and unforgettable moments. May all your dreams come true!</p>
-  <button class="btn" onclick="startCelebration()">Replay Celebration 🎊</button>
+  <!-- Birthday Card Container -->
+  <div class="container">
+    <h1>🎉 Happy Birthday Billy! 🎉</h1>
+    <p>Wishing you a day filled with laughter, joy, and unforgettable moments. May all your dreams come true! AND STAY PAID🥳🎆</p>
+    <button class="btn" onclick="startCelebration()">Replay Celebration 🎊</button>
+  </div>
 
   <!-- Music Autoplay -->
   <audio id="birthdayMusic" autoplay loop>
@@ -122,10 +156,8 @@
         if (Date.now() < end) {
           requestAnimationFrame(frame);
         }
-      }());
-    }
-
-    function createBalloons(count = 15) {
+      })();
+    }function createBalloons(count = 15) {
       const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#5f27cd'];
       for (let i = 0; i < count; i++) {
         const balloon = document.createElement('div');
@@ -144,6 +176,7 @@
       document.getElementById('birthdayMusic').play();
     }
 
+    // Auto-start celebration
     window.onload = startCelebration;
   </script>
 </body>
