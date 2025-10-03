@@ -1,183 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Billy!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BixMAX — Software Solutions</title>
+  <meta name="description" content="BixMAX — Web, Mobile & Custom Software. Clean scalable code, fast delivery." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --bg:#0b0f14; /* very dark */
+      --card:#0f1720;
+      --accent:#00e0ff; /* cyan */
+      --accent-2:#7be0ff; /* lightblue */
+      --muted:#9aa6b2;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --max:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#05060a 0%,var(--bg) 100%);color:#e6eef3}
+    .wrap{max-width:var(--max);margin:40px auto;padding:28px}/* header / hero */
+header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#04121a}
+.brand h1{font-size:20px;margin:0}
+.brand p{margin:0;color:var(--muted);font-size:13px}
+nav{display:flex;gap:12px;align-items:center}
+.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);font-size:14px;text-decoration:none}
+.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001215;padding:10px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
 
-    body {
-      background: linear-gradient(135deg, #2e0249, #570a57, #a91079, #f806cc);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
-      font-family: 'Poppins', sans-serif;
-      overflow: hidden;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:26px;align-items:center}
+.hero-left h2{font-size:34px;margin:0 0 10px}
+.hero-left p{color:var(--muted);margin:0 0 18px}
+.kpis{display:flex;gap:14px}
+.kpi{background:var(--card);padding:12px;border-radius:12px;min-width:120px;text-align:center}
+.kpi strong{display:block;font-size:20px}
 
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
+.hero-right{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+.mock{height:220px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));display:flex;flex-direction:column}
+.mock code{font-family:monospace;padding:12px;flex:1;overflow:auto;color:var(--accent-2)}
 
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      padding: 40px 30px;
-      text-align: center;
-      color: white;
-      max-width: 90%;
-      width: 400px;
-      z-index: 10;
-      animation: fadeIn 1s ease-out;
-    }
+/* services */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.5)}
+.card h3{margin:0 0 8px}
+.card p{margin:0;color:var(--muted);font-size:14px}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
+/* portfolio */
+.portfolio{margin-top:28px}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.project{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:12px;border-radius:12px}
+.project .title{font-weight:700}
+.project .sub{color:var(--muted);font-size:13px}
 
-    .container h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+/* contact */
+.contact{display:flex;gap:20px;margin-top:28px}
+.contact .left{flex:1}
+form{background:var(--glass);padding:16px;border-radius:12px}
+label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
+textarea{min-height:120px;resize:vertical}
+.meta{margin-top:10px;display:flex;gap:10px;align-items:center}
 
-    .container p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
+footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
 
-    .btn {
-      padding: 10px 22px;
-      font-size: 1rem;
-      font-weight: bold;
-      color: #a91079;
-      background: #fff;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+/* responsive */
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr}
+  .grid, .projects{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .grid, .projects{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start}
+  .wrap{margin:18px;padding:14px}
+}
 
-    .btn:hover {
-      background: #fce4f3;
-    }
+/* small accent animation */
+.logo:after{content:'';position:absolute;width:140px;height:140px;border-radius:50%;filter:blur(36px);opacity:0.65;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:translate(-20px,-20px);z-index:-1}
 
-    /* Balloons */
-    .balloon {
-      position: absolute;
-      bottom: -150px;
-      width: 60px;
-      height: 80px;
-      background-color: red;
-      border-radius: 60% 60% 60% 60%;
-      animation: floatUp 10s infinite;
-      z-index: 0;
-    }
-
-    .balloon::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      width: 2px;
-      height: 40px;
-      background: white;
-    }
-
-    @keyframes floatUp {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* Confetti fix */
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 999;
-    }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          B
+        </div>
+        <div>
+          <h1>BixMAX</h1>
+          <p>Software Solutions — Web • Mobile • Automation</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#services">Services</a>
+        <a class="btn" href="#projects">Projects</a>
+        <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+      </nav>
+    </header><main>
+  <section class="hero">
+    <div class="hero-left">
+      <h2>🚀 Building the future, one line of code at a time.</h2>
+      <p>Custom web & mobile apps, e-commerce platforms, API integrations, and automation — shipped fast with clean, maintainable code.</p>
+      <div style="margin-top:18px;display:flex;gap:10px">
+        <button class="cta" onclick="openContact()">Get a Quote</button>
+        <a class="btn" href="#projects">View Projects</a>
+      </div>
 
-  <!-- Birthday Card Container -->
-  <div class="container">
-    <h1>🎉 Happy Birthday Billy! 🎉</h1>
-    <p>Wishing you a day filled with laughter, joy, and unforgettable moments. May all your dreams come true! AND STAY PAID🥳🎆</p>
-    <button class="btn" onclick="startCelebration()">Replay Celebration 🎊</button>
-  </div>
+      <div class="kpis" style="margin-top:22px">
+        <div class="kpi"><strong>3+</strong><span style="color:var(--muted)">Years Coding</span></div>
+        <div class="kpi"><strong>20+</strong><span style="color:var(--muted)">Projects</span></div>
+        <div class="kpi"><strong>99%</strong><span style="color:var(--muted)">Client Satisfaction</span></div>
+      </div>
+    </div>
 
-  <!-- Music Autoplay -->
-  <audio id="birthdayMusic" autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_31686b9f60.mp3?filename=happy-birthday-109709.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+    <aside class="hero-right" aria-hidden>
+      <div class="mock">
+        <div style="padding:10px;font-size:12px;color:var(--muted)">Live code snippet</div>
+        <code><pre>// Example: simple fetch
 
-  <!-- Confetti JS -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    function shootConfetti() {
-      var end = Date.now() + 2 * 1000;
-      var colors = ['#bb0000', '#ffffff', '#00ff99', '#ffcc00'];
+fetch('/api/data') .then(r=>r.json()) .then(d=>console.log(d)) </pre></code> </div> </aside> </section>
 
-      (function frame() {
-        confetti({
-          particleCount: 5,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 },
-          colors: colors
-        });
-        confetti({
-          particleCount: 5,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 },
-          colors: colors
-        });
+<section id="services" class="grid">
+    <div class="card"><h3>Web Development</h3><p>Responsive, fast, and accessible websites. React, Next.js, Vanilla HTML/CSS/JS.</p></div>
+    <div class="card"><h3>Mobile Apps</h3><p>Android & iOS apps with performance-first UX. Flutter, React Native, or native.</p></div>
+    <div class="card"><h3>Automation & APIs</h3><p>Integrations, scripts, cron jobs, and REST/GraphQL APIs to streamline your workflows.</p></div>
+  </section>
 
-        if (Date.now() < end) {
-          requestAnimationFrame(frame);
-        }
-      })();
-    }function createBalloons(count = 15) {
-      const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#5f27cd'];
-      for (let i = 0; i < count; i++) {
-        const balloon = document.createElement('div');
-        balloon.classList.add('balloon');
-        balloon.style.left = Math.random() * 100 + 'vw';
-        balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        balloon.style.animationDuration = (10 + Math.random() * 5) + 's';
-        document.body.appendChild(balloon);
-        setTimeout(() => balloon.remove(), 12000);
-      }
+  <section class="portfolio" id="projects">
+    <h3 style="margin:8px 0">Selected Projects</h3>
+    <div class="projects">
+      <div class="project"><div class="title">E‑Commerce Demo</div><div class="sub">Custom cart, checkout & admin panel</div></div>
+      <div class="project"><div class="title">Biz Landing</div><div class="sub">Marketing site with contact integration</div></div>
+      <div class="project"><div class="title">Task Automator</div><div class="sub">API-driven job runner & notifier</div></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="left">
+      <h3>Contact BixMAX</h3>
+      <p style="color:var(--muted)">Tell me about your project — quick chats lead to real builds.</p>
+
+      <form id="contactForm" onsubmit="sendMail(event)">
+        <label for="name">Name</label>
+        <input id="name" name="name" required placeholder="Your name" />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@email.com" />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="Short description of your project"></textarea>
+
+        <div class="meta">
+          <button class="cta" type="submit">Send Message</button>
+          <a class="btn" id="whatsappBtn" href="https://wa.me/233000000000" target="_blank">WhatsApp</a>
+        </div>
+      </form>
+    </div>
+
+    <div style="width:320px">
+      <div class="card">
+        <h4>Quick Contact</h4>
+        <p class="sub">Email: <span style="color:var(--accent-2);">hello@bixmax.com</span></p>
+        <p class="sub">Phone: <span style="color:var(--accent-2);">+233 000 000 000</span></p>
+        <p style="color:var(--muted);font-size:13px;margin-top:8px">Or hit WhatsApp for a faster reply.</p>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <div class="card">
+        <h4>Hire Process</h4>
+        <p class="sub">1. Chat & scope → 2. Quote → 3. Build → 4. Deliver & support</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © BixMAX 2025 • Built with care
+</footer>
+
+  </div>  <script>
+    function openContact(){document.getElementById('contact').scrollIntoView({behavior:'smooth'})}
+    function sendMail(e){
+      e.preventDefault();
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const msg=document.getElementById('message').value.trim();
+      const subject=encodeURIComponent('BixMAX - New inquiry from '+name);
+      const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+msg);
+      // fallback: open mail client
+      window.location.href = 'mailto:hello@bixmax.com?subject='+subject+'&body='+body;
     }
-
-    function startCelebration() {
-      shootConfetti();
-      createBalloons();
-      document.getElementById('birthdayMusic').play();
-    }
-
-    // Auto-start celebration
-    window.onload = startCelebration;
-  </script>
-</body>
+    // Replace whatsapp link if user updates phone via JS later
+    // document.getElementById('whatsappBtn').href = 'https://wa.me/233...';
+  </script></body>
 </html>
